@@ -58,8 +58,11 @@ span {
 }
 .img.bull {
     transform: translateY(20px);
-    width: 200px;
+    width: 175px;
 }
 .img.knight {
-    transform: translate(35px, -220px);
+    transform: translate(35px, -205px);
+}
+#elapsed > h1 {
+    margin: 0;
 }

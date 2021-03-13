@@ -15,7 +15,7 @@
         </div>
         <a class="btn gold toPlay" href="#">Play</a>
         <a class="btn toScore" href="#">Leaderboard</a>
-        <p>Local High Score: <span>0</span></p>
+        <p>Local High Score: <span id="hiCount">0 Seconds</span></p>
     </div>
     <div id="game" class="page">
         <h1>Stay on NotRocky</h1>
@@ -23,13 +23,27 @@
             <img class="img bull" src="img/usf_bull.png">
             <img class="img knight" src="img/knightro.png">
         </div>
-        <p id="inProgressCaption">We can't say it's Rocky because our NotLawyers said that was "trademark infringement" or something.</p>
-        <div id="elapsed"></div>
+        <!-- <p id="inProgressCaption">We can't say it's Rocky because our NotLawyers said that was "trademark infringement" or something.</p> -->
+        <div id="elapsed">
+            <p>Time Elapsed</p>
+            <h1 id="counter">0 sec</h1>
+        </div>
     </div>
     <div id="score" class="page">
         <h1>High Scores</h1>
         <!-- TODO: Replace with tables. -->
         <p>none lol</p>
+    </div>
+    <div id="fall" class="page">
+        <h1>You fell off!</h1>
+        <div id="elapsed">
+            <p>Time Elapsed</p>
+            <h1 id="counterFin">0 sec</h1>
+        </div>
+        <p id="ranking">Hey, at least you’re better than USF’s football team.</p>
+        <a class="btn gold toSubmit" href="#">Submit</a>
+        <a class="btn toPlay" href="#">Play Again</a>
+        <a class="btn toScore" href="#">Leaderboard</a>
     </div>
 </body>
 <script src="index.js" async></script>
