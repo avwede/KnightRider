@@ -2,6 +2,7 @@ from fastapi import Body, Request, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from getfunction import getfunction
+from postfunction import postfunction
 
 app = FastAPI()
 
@@ -24,3 +25,8 @@ app.add_middleware(
 def getfunc():
     gfunct = getfunction()
     return gfunct.getScores()
+
+@app.post("/")
+def postfunc(Name: str, Score: str, Phone: str):
+    pfunct = postfunction()
+    return pfunct.postScore(Name, Score, Phone)

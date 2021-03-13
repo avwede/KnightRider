@@ -1,10 +1,10 @@
 import psycopg2
 
-class getfunction:
+class postfunction:
     def __init__(self):
         self.thing = 1
     
-    def getScores(self):
+    def postScore(self, Name, Score, Phone):
         conn = psycopg2.connect(
             database='pure-lamb-1277.Scoreboard',
             user='jacob',
@@ -12,18 +12,23 @@ class getfunction:
             port=26257,
             host='free-tier.gcp-us-central1.cockroachlabs.cloud'
         )
-        
-        topTen = [] 
 
-        # Returns the ten highest scores from the database.
+        # Add the new score to the leaderboard and return the current place.
         with conn.cursor() as cur:
+            cur.execute("INSERT INTO Scoreboard.Scores (Name, Score, Phone) VALUES ('" + Name + "', " + Score + ", " + Phone + ") RETURNING *;")
+            conn.commit()
+            rowID = cur.fetchone()[3]
+
             cur.execute("SELECT * FROM Scoreboard.Scores ORDER BY Score DESC;")
             rows = cur.fetchall()
             currRow = 0
+            currPlace = 0
             for row in rows:
-                if currRow == 10:
+                currRow += 1
+                if (row[3] == rowID):
+                    currPlace = currRow
                     break
-                topTen.append({"Name": row[0], "Score": row[1]})
         
-        conn.close()        
-        return topTen       
+        conn.close()
+
+        return {"Place": currPlace}      
