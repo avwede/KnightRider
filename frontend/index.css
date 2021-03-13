@@ -29,11 +29,11 @@ h1 {
     transition: opacity 0.15s ease-in-out;
     margin: 10px;
 }
-.btn:active {
-    opacity: 0.5;
+.btn:hover, input:hover {
+    opacity: 0.8;
 }
-.btn:hover {
-    opacity: 0.75;
+.btn:active, input:focus {
+    opacity: 0.7;
 }
 span {
     color: gold;
@@ -45,7 +45,7 @@ span {
     display: block;
 }
 .space {
-    height: 300px;
+    height: 250px;
 }
 .img {
     width: 150px;
@@ -65,4 +65,16 @@ span {
 }
 #elapsed > h1 {
     margin: 0;
+}
+input {
+    border-radius: 8px;
+    background: white;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 40px);
+    display: block;
+    border: none;
+    transition: opacity 0.15s ease-in-out;
 }

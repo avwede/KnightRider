@@ -30,8 +30,13 @@ window.onload = () => {
     }
 
     const allToScore = document.getElementsByClassName("toScore")
-    for (let i = 0; i < allToScore.length; i++){
+    for (i = 0; i < allToScore.length; i++){
         allToScore[i].addEventListener("click", ()=>{nav("score")});
+    }
+
+    const allToHome = document.getElementsByClassName("toHome")
+    for (i = 0; i < allToHome.length; i++){
+        allToHome[i].addEventListener("click", ()=>{nav("home")});
     }
     
     // Bull movement.
