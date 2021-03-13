@@ -44,3 +44,22 @@ span {
 .page.active {
     display: block;
 }
+.space {
+    height: 300px;
+}
+.img {
+    width: 150px;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* top: 150px; */
+    left: 0;
+}
+.img.bull {
+    transform: translateY(20px);
+    width: 200px;
+}
+.img.knight {
+    transform: translate(35px, -220px);
+}
