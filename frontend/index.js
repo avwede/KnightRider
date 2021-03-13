@@ -24,19 +24,34 @@ window.onload = () => {
 
     // Initialize buttons
     // I opted to use a For loop to get ALL the buttons and make them navigatable.
-    const allToGame = document.getElementsByClassName("toPlay")
+    const allToGame = document.getElementsByClassName("toPlay");
     for (let i = 0; i < allToGame.length; i++){
         allToGame[i].addEventListener("click", ()=>{nav("game")});
     }
 
-    const allToScore = document.getElementsByClassName("toScore")
+    const allToScore = document.getElementsByClassName("toScore");
     for (i = 0; i < allToScore.length; i++){
         allToScore[i].addEventListener("click", ()=>{nav("score")});
     }
 
-    const allToHome = document.getElementsByClassName("toHome")
+    const allToHome = document.getElementsByClassName("toHome");
     for (i = 0; i < allToHome.length; i++){
         allToHome[i].addEventListener("click", ()=>{nav("home")});
+    }
+
+    const allToSocial = document.getElementsByClassName("toSocial");
+    for (i = 0; i < allToSocial.length; i++){
+        allToSocial[i].addEventListener("click", ()=>{
+            const shareStr = `I stayed on NotRocky for ${Math.floor(currentTime * 100) / 100} seconds on KnightRider!`;
+            if (navigator.share)
+                navigator.share({
+                    title: "KnightRider",
+                    url: "https://knightrider.tech/",
+                    text: shareStr
+                });
+            else
+                window.open(`https://twitter.com/intent/tweet?url=https%3A%2F%2Fknightrider.tech%2F&text=${encodeURI(shareStr)}&hashtags=KnightRider`, "_blank");
+        });
     }
     
     // Bull movement.
@@ -52,7 +67,10 @@ function nav(pageName) {
 
     // Enable gyro.
     if (pageName === "game" && !didGyroAsk) gyroRequest();
-    if (pageName === "game") isPlaying = true;
+    if (pageName === "game") {
+        currentTime = 0;
+        isPlaying = true;
+    }
 }
 
 function gyroRequest() {
@@ -191,7 +209,5 @@ function gameEndCondition() {
             window.localStorage.setItem("hiScore", String((Math.floor(currentTime * 100)/100)));
         
         document.getElementById("hiCount").innerText = `${window.localStorage.getItem("hiScore")} Seconds`;
-
-        currentTime = 0;
     }
 }

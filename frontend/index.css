@@ -78,3 +78,6 @@ input {
     border: none;
     transition: opacity 0.15s ease-in-out;
 }
+.discl {
+    opacity: 0.5;;
+}
