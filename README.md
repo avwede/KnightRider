@@ -2,9 +2,9 @@
 
 Created at [Hackabull 2021](https://hackabull.io/) by:
 
-- [Jacob F.](https://github.com/Zingsla)
-- [Ashley V.](https://github.com/avwede)
-- [Jeffrey D.V.](https://github.com/jeffreydivi)
+- [Jacob Franz](https://github.com/Zingsla)
+- [Ashley Voglewede](https://github.com/avwede)
+- [Jeffrey DiVincent](https://github.com/jeffreydivi)
 
 ## Description
 
