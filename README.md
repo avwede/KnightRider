@@ -26,6 +26,7 @@ Created at [Hackabull 2021](https://hackabull.io/) by:
 - [Python3](https://www.python.org/)
 - [Visual Studio Code Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 - [Domain.com](https://www.domain.com/)
+- [Git](https://git-scm.com/)
 
 
 ## Setup
