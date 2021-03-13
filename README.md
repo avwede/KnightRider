@@ -18,11 +18,11 @@ Created at [Hackabull 2021](https://hackabull.io/) by:
 
 
 ## Technologies Used
-
+- [CockroachDB](https://www.cockroachlabs.com/)
+- [Google Cloud Platform](https://cloud.google.com/)
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/CSS)
 - [JavaScript](https://www.javascript.com/)
-- [CockroachDB](https://www.cockroachlabs.com/)
 - [Python3](https://www.python.org/)
 - [Visual Studio Code Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 - [Domain.com](https://www.domain.com/)
