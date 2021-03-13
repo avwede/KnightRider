@@ -1,6 +1,6 @@
 # KnightRider
-_**[knightrider.tech](knightrider.tech)  
-Climb the leaderboard as you see how long you can stay on top of NotRocky the Bull!**_
+_**Climb the leaderboard as you see how long you can stay on top of NotRocky the Bull!
+[knightrider.tech](knightrider.tech)  **_
 
 Created at [Hackabull 2021](https://hackabull.io/) by:
 
