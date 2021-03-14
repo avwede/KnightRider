@@ -35,6 +35,8 @@ Backend:
 - [Courier](https://courier.com)
 - [Twilio](https://www.twilio.com)
 - [Python3](https://www.python.org/)
+  - [FastAPI](https://fastapi.tiangolo.com/)
+  - [psycopg2](https://pypi.org/project/psycopg2/)
 
 Frontend:
 - [GitHub Pages](https://pages.github.com)
