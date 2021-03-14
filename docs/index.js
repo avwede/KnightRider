@@ -279,9 +279,9 @@ function sellYourDataToUs(firstRun) {
         container.innerHTML = "";
         const place = Number(json["Place"]);
         const el = document.createElement("h2");
-        if (place % 10 === 0) el.innerText = `You ranked ${place}st place.`;
-        else if (place % 10 === 1 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}nd place.`;
-        else if (place % 10 === 2 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}rd place.`;
+        if (place % 10 === 1 && place != 11) el.innerText = `You ranked ${place}st place.`;
+        else if (place % 10 === 2 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}nd place.`;
+        else if (place % 10 === 3 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}rd place.`;
         else el.innerText = `You ranked ${place}th place.`;
         container.append(el);
     });
