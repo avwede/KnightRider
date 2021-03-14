@@ -93,8 +93,8 @@ function nav(pageName) {
                 let row = document.createElement("tr");
                 let placeEl = document.createElement("td")
                 if (i % 10 === 0) placeEl.innerText = `${i + 1}st`;
-                else if (i % 10 === 1 && !(i > 10 && place < 19)) placeEl.innerText = `${i + 1}nd`;
-                else if (i % 10 === 2 && !(i > 10 && place < 19)) placeEl.innerText = `${i + 1}rd`;
+                else if (i % 10 === 1 && !(i > 10 && i < 19)) placeEl.innerText = `${i + 1}nd`;
+                else if (i % 10 === 2 && !(i > 10 && i < 19)) placeEl.innerText = `${i + 1}rd`;
                 else placeEl.innerText = `${i + 1}th`;
 
                 let nickEl = document.createElement("td");
