@@ -1,4 +1,5 @@
 # KnightRider
+![KnightRider: Play the War on I-4 . Before the lawyers get us.](https://raw.githubusercontent.com/avwede/KnightRider/main/docs/img/ico/card.png)
 ***Climb the leaderboard as you see how long you can stay on top of NotRocky the Bull!***
 
 Try it out at [knightrider.tech](knightrider.tech).
