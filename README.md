@@ -55,3 +55,7 @@ Development:
 1. Edit the constants on the top of `./docs/index.js`, notably `api` (which is the backend URL).
 2. Deploy the contents of `./docs/` to a static file host, such as GitHub Pages
 3. Have fun!
+
+### Backend
+1. Install the requirements with `pip install -r requirements.txt`
+2. From the backend folder, run the project with `uvicorn main:app --reload`
