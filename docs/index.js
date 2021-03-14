@@ -253,12 +253,7 @@ function gameEndCondition() {
 }
 
 function sellYourDataToUs() {
-    fetch(api + `?Name=${document.querySelector('input[type="text"]').value}&Score=${Math.floor(currentTime * 100) / 100}&Phone=${document.querySelector('input[type="tel"]').value}`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json;'
-        }
-    }).then((resp) => {
+    fetch(api + `post/?Name=${document.querySelector('input[type="text"]').value}&Score=${Math.floor(currentTime * 100) / 100}&Phone=${document.querySelector('input[type="tel"]').value}`).then((resp) => {
         return resp.json();
     }).then((json) => {
         const container = document.getElementById("signUp");
