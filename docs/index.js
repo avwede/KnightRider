@@ -4,7 +4,7 @@ let offsetHoriz = 0;
 let didGyroAsk = false;
 let calVert = 0;
 let calHoriz = 0;
-const api = "https://api.knightrider.tech/"
+const api = "https://knightrider-307600.ue.r.appspot.com/";
 
 let bullOffsetVert = 0;
 let bullOffsetHoriz = 0;
@@ -37,6 +37,11 @@ window.onload = () => {
     const allToHome = document.getElementsByClassName("toHome");
     for (i = 0; i < allToHome.length; i++){
         allToHome[i].addEventListener("click", ()=>{nav("home")});
+    }
+
+    const allToSubmit = document.getElementsByClassName("toSub,it");
+    for (i = 0; i < allToSubmit.length; i++){
+        allToSubmit[i].addEventListener("click", sellYourDataToUs);
     }
 
     const allToSocial = document.getElementsByClassName("toSocial");
@@ -79,9 +84,10 @@ function nav(pageName) {
         fetch(api).then((resp) => {
             return resp.json();
         }).then((json) => {
+            console.log(json)
             for (let i = 0; i < json.length; i++) {
-                let score = json[i].score;
-                let name = json[i].name;
+                let score = json[i]["Score"];
+                let name = json[i]["Name"];
 
                 // We have the scores. Now do something with them!
                 let row = document.createElement("tr");
@@ -247,13 +253,8 @@ function gameEndCondition() {
 }
 
 function sellYourDataToUs() {
-    fetch(api, {
+    fetch(api + `?Name=${document.querySelector('input[type="text"]').value}&Score=${Math.floor(currentTime * 100) / 100}&Phone=${document.querySelector('input[type="tel"]').value}`, {
         method: "POST",
-        body: {
-            name: document.querySelector('input[type="text"]').value,
-            "Score": Math.floor(currentTime * 100) / 100,
-            "Phone": document.querySelector('input[type="tel"]').value
-        },
         headers: {
             'Content-Type': 'application/json;'
         }
