@@ -42,7 +42,7 @@ class postfunction:
         client = Courier(auth_token="dk_prod_2VGMFMHMF7459HQ4HN4GXW3SC3WD")
         resp = client.send(
             event="YP143Y45M4MXFGP648AVD0TMPTQ1",
-            recipient=name,
+            recipient="204a8da9-603e-4916-b567-970f54c40204",
             profile={
                 "phone_number": phoneNum
             },

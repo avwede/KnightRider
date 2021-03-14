@@ -29,7 +29,7 @@ def getfunc():
     gfunct = getfunction()
     return gfunct.getScores()
 
-@app.post("/")
+@app.get("/post")
 def postfunc(Name: str, Score: str, Phone: str):
     pfunct = postfunction()
     return pfunct.postScore(Name, Score, Phone)
