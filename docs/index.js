@@ -1,16 +1,16 @@
+// Config
+const api = "https://knightrider-307600.ue.r.appspot.com/";
+const sensitivity = 5;
+const platformSize = 35;
+
 // This IS a hackathon. So hacky globals ensue.
 let offsetVert = 0;
 let offsetHoriz = 0;
 let didGyroAsk = false;
 let calVert = 0;
 let calHoriz = 0;
-const api = "https://knightrider-307600.ue.r.appspot.com/";
-
 let bullOffsetVert = 0;
 let bullOffsetHoriz = 0;
-
-const sensitivity = 5;
-const platformSize = 35;
 
 let currentTime = 0;
 let isPlaying = false;

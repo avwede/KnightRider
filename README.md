@@ -22,7 +22,8 @@ Load the website on your phone, press Play, and then tilt your phone to control 
 - See how long you can stay on NotRocky
 - Submit your scores to the leaderboard
 - Get a text message whenever you drop off the leaderboard
-- 
+- Share your high scores with friends with a single tap with all of your favorite apps
+- Support for social cards (Twitter, OpenGraph)
 
 
 ## Technologies Used
@@ -46,3 +47,7 @@ Development:
 
 ## Setup
 
+### Frontend
+1. Edit the constants on the top of `./docs/index.js`, notably `api` (which is the backend URL).
+2. Deploy the contents of `./docs/` to a static file host, such as GitHub Pages
+3. Have fun!
