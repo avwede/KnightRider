@@ -41,7 +41,7 @@ window.onload = () => {
 
     const allToSubmit = document.getElementsByClassName("toSub,it");
     for (i = 0; i < allToSubmit.length; i++){
-        allToSubmit[i].addEventListener("click", sellYourDataToUs);
+        allToSubmit[i].addEventListener("click", ()=>{sellYourDataToUs()});
     }
 
     const allToSocial = document.getElementsByClassName("toSocial");
