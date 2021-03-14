@@ -39,7 +39,7 @@ window.onload = () => {
         allToHome[i].addEventListener("click", ()=>{nav("home")});
     }
 
-    const allToSubmit = document.getElementsByClassName("toSub,it");
+    const allToSubmit = document.getElementsByClassName("toSubmit");
     for (i = 0; i < allToSubmit.length; i++){
         allToSubmit[i].addEventListener("click", ()=>{sellYourDataToUs()});
     }
