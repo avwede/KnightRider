@@ -1,4 +1,5 @@
 import psycopg2
+from trycourier import Courier
 
 class postfunction:
     def __init__(self):
@@ -12,6 +13,9 @@ class postfunction:
             port=26257,
             host='free-tier.gcp-us-central1.cockroachlabs.cloud'
         )
+
+        phoneNum = 0
+        name = ""
 
         # Add the new score to the leaderboard and return the current place.
         with conn.cursor() as cur:
@@ -28,7 +32,24 @@ class postfunction:
                 if (row[3] == rowID):
                     currPlace = currRow
                     break
+            
+            if currRow < 11 and len(rows) > 10:
+                phoneNum = rows[10][2]
+                name = rows[10][0]
         
         conn.close()
 
-        return {"Place": currPlace}      
+        client = Courier(auth_token="dk_prod_2VGMFMHMF7459HQ4HN4GXW3SC3WD")
+        resp = client.send(
+            event="YP143Y45M4MXFGP648AVD0TMPTQ1",
+            recipient=name,
+            profile={
+                "phone_number": phoneNum
+            },
+            data={
+                "name": name,
+                "source_url": "https://knightrider.tech"
+            }
+        )
+
+        return {"Place": currPlace, "Response": resp['messageId']}      

@@ -11,6 +11,9 @@ origins = [
     "http://localhost:3000",
     "http://localhost",
     "http://localhost:8080",
+    "https://knightrider.tech",
+    "https://www.knightrider.tech",
+    "https://test.gamma.shuga",
 ]
 
 app.add_middleware(

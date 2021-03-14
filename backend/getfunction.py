@@ -21,9 +21,10 @@ class getfunction:
             rows = cur.fetchall()
             currRow = 0
             for row in rows:
-                if currRow == 10:
-                    break
+                currRow += 1
                 topTen.append({"Name": row[0], "Score": row[1]})
+                if currRow == 25:
+                    break
         
         conn.close()        
         return topTen       

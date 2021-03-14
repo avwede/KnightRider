@@ -1,0 +1,8 @@
+psycopg2_binary==2.8.6
+fastapi==0.63.0
+psycopg2==2.8.6
+uvicorn==0.13.4
+gunicorn==20.0.4
+httptools==0.1.1
+uvloop==0.15.2
+trycourier==1.7.0
