@@ -14,6 +14,7 @@ let bullOffsetHoriz = 0;
 
 let currentTime = 0;
 let isPlaying = false;
+let didConsent = false;
 
 window.onload = () => {
     // High Score Counter
@@ -41,7 +42,7 @@ window.onload = () => {
 
     const allToSubmit = document.getElementsByClassName("toSubmit");
     for (i = 0; i < allToSubmit.length; i++){
-        allToSubmit[i].addEventListener("click", ()=>{sellYourDataToUs()});
+        allToSubmit[i].addEventListener("click", ()=>{sellYourDataToUs(true)});
     }
 
     const allToSocial = document.getElementsByClassName("toSocial");
@@ -249,11 +250,29 @@ function gameEndCondition() {
             window.localStorage.setItem("hiScore", String((Math.floor(currentTime * 100)/100)));
         
         document.getElementById("hiCount").innerText = `${window.localStorage.getItem("hiScore")} Seconds`;
+
+        if (didConsent)
+            sellYourDataToUs(false);
     }
 }
 
-function sellYourDataToUs() {
-    fetch(api + `post/?Name=${document.querySelector('input[type="text"]').value}&Score=${Math.floor(currentTime * 100) / 100}&Phone=${document.querySelector('input[type="tel"]').value}`).then((resp) => {
+function sellYourDataToUs(firstRun) {
+    let score = Math.floor(currentTime * 100) / 100;
+    let storedName;
+    let storedNum
+    if (firstRun) {
+        storedName = document.querySelector('input[type="text"]').value;
+        storedNum = document.querySelector('input[type="tel"]').value;
+
+        window.localStorage.setItem("personName", storedName);
+        window.localStorage.setItem("phoneNum", storedNum);
+        didConsent = true;
+    } else {
+        storedName = window.localStorage.getItem("personName");
+        storedNum = window.localStorage.getItem("phoneNum");
+    }
+
+    fetch(api + `post/?Name=${storedName}&Score=${score}&Phone=${storedNum}`).then((resp) => {
         return resp.json();
     }).then((json) => {
         const container = document.getElementById("signUp");
