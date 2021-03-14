@@ -39,7 +39,7 @@ window.onload = () => {
         allToHome[i].addEventListener("click", ()=>{nav("home")});
     }
 
-    const allToSubmit = document.getElementsByClassName("toSub,it");
+    const allToSubmit = document.getElementsByClassName("toSubmit");
     for (i = 0; i < allToSubmit.length; i++){
         allToSubmit[i].addEventListener("click", ()=>{sellYourDataToUs()});
     }
@@ -93,8 +93,8 @@ function nav(pageName) {
                 let row = document.createElement("tr");
                 let placeEl = document.createElement("td")
                 if (i % 10 === 0) placeEl.innerText = `${i + 1}st`;
-                else if (i % 10 === 1) placeEl.innerText = `${i + 1}nd`;
-                else if (i % 10 === 3) placeEl.innerText = `${i + 1}rd`;
+                else if (i % 10 === 1 && !(i > 10 && i < 19)) placeEl.innerText = `${i + 1}nd`;
+                else if (i % 10 === 2 && !(i > 10 && i < 19)) placeEl.innerText = `${i + 1}rd`;
                 else placeEl.innerText = `${i + 1}th`;
 
                 let nickEl = document.createElement("td");
@@ -266,8 +266,8 @@ function sellYourDataToUs() {
         const place = Number(json["Place"]);
         const el = document.createElement("h2");
         if (place % 10 === 0) el.innerText = `You ranked ${place}st place.`;
-        else if (place % 10 === 1) el.innerText = `You ranked ${place}nd place.`;
-        else if (place % 10 === 3) el.innerText = `You ranked ${place}rd place.`;
+        else if (place % 10 === 1 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}nd place.`;
+        else if (place % 10 === 2 && !(place > 10 && place < 19)) el.innerText = `You ranked ${place}rd place.`;
         else el.innerText = `You ranked ${place}th place.`;
         container.append(el);
     });
