@@ -4,6 +4,7 @@ let offsetHoriz = 0;
 let didGyroAsk = false;
 let calVert = 0;
 let calHoriz = 0;
+const api = "https://api.knightrider.tech/"
 
 let bullOffsetVert = 0;
 let bullOffsetHoriz = 0;
@@ -12,7 +13,6 @@ const sensitivity = 5;
 const platformSize = 35;
 
 let currentTime = 0;
-
 let isPlaying = false;
 
 window.onload = () => {
@@ -67,9 +67,43 @@ function nav(pageName) {
 
     // Enable gyro.
     if (pageName === "game" && !didGyroAsk) gyroRequest();
+
+    // Start game
     if (pageName === "game") {
         currentTime = 0;
         isPlaying = true;
+    }
+
+    // Load high scores from server.
+    if (pageName === "score") {
+        fetch(api).then((resp) => {
+            return resp.json();
+        }).then((json) => {
+            for (let i = 0; i < json.length; i++) {
+                let score = json[i].score;
+                let name = json[i].name;
+
+                // We have the scores. Now do something with them!
+                let row = document.createElement("tr");
+                let placeEl = document.createElement("td")
+                if (i % 10 === 0) placeEl.innerText = `${i + 1}st`;
+                else if (i % 10 === 1) placeEl.innerText = `${i + 1}nd`;
+                else if (i % 10 === 3) placeEl.innerText = `${i + 1}rd`;
+                else placeEl.innerText = `${i + 1}th`;
+
+                let nickEl = document.createElement("td");
+                nickEl.innerText = name;
+
+                let scoreEl = document.createElement("td");
+                scoreEl.innerText = `${score} seconds`;
+
+                // Append all these elements to the row element.
+                row.append(placeEl);
+                row.append(nickEl);
+                row.append(scoreEl);
+                document.querySelector("tbody").append(row);
+            }
+        });
     }
 }
 
@@ -210,4 +244,30 @@ function gameEndCondition() {
         
         document.getElementById("hiCount").innerText = `${window.localStorage.getItem("hiScore")} Seconds`;
     }
+}
+
+function sellYourDataToUs() {
+    fetch(api, {
+        method: "POST",
+        body: {
+            name: document.querySelector('input[type="text"]').value,
+            "Score": Math.floor(currentTime * 100) / 100,
+            "Phone": document.querySelector('input[type="tel"]').value
+        },
+        headers: {
+            'Content-Type': 'application/json;'
+        }
+    }).then((resp) => {
+        return resp.json();
+    }).then((json) => {
+        const container = document.getElementById("signUp");
+        container.innerHTML = "";
+        const place = Number(json["Place"]);
+        const el = document.createElement("h2");
+        if (place % 10 === 0) el.innerText = `You ranked ${place}st place.`;
+        else if (place % 10 === 1) el.innerText = `You ranked ${place}nd place.`;
+        else if (place % 10 === 3) el.innerText = `You ranked ${place}rd place.`;
+        else el.innerText = `You ranked ${place}th place.`;
+        container.append(el);
+    });
 }
