@@ -22,7 +22,7 @@ Load the website on your phone, press Play, and then tilt your phone to control 
 - Tilt your phone to control NotKnightro
 - See how long you can stay on NotRocky the Bull
 - Submit your scores to the leaderboard
-- Get a text message whenever you drop off the leaderboard
+- Get a text message whenever you move down the leaderboard
 - Share your high scores with friends with a single tap with all of your favorite apps
 - Support for social cards (Twitter, OpenGraph)
 
